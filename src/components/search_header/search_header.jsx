@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 import styles from './search_header.module.css';
 
-const SearchHeader = ({onSearch, onMain}) => {
+const SearchHeader = memo(({onSearch, onMain}) => {
         const inputRef = useRef();   
         const handleMain = () => {              
             const clear = "";
@@ -21,7 +21,7 @@ const SearchHeader = ({onSearch, onMain}) => {
             if(event.key === 'Enter'){
                 handleSearch();
             }            
-        };
+        };        
         return(
             <header className={styles.header}>
                 <div className={styles.logo} onClick={handleMain}>
@@ -34,6 +34,6 @@ const SearchHeader = ({onSearch, onMain}) => {
                 </button>
             </header>
         )            
-    };
-
+    }
+);
 export default SearchHeader;
